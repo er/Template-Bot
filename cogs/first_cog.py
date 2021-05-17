@@ -11,6 +11,10 @@ class FirstCog(commands.Cog):
         embed = discord.Embed(
             title="Pong!",
             colour=int("19C7FC", 16),
-            description=f"The bot's ping is: `{round(self.client.latency, 2)}`"
+            description=f"The bot's ping is: `{round(self.client.latency * 1000, 2)}` ms"
         )
         await ctx.send(embed=embed)
+
+
+def setup(client):
+    client.add_cog(FirstCog(client))
